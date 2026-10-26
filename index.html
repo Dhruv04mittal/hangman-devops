@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f7f5ef">
+  <title>Hangtime — a word-guessing game</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <header class="topbar">
+      <div class="brand"><div class="brand-mark" aria-hidden="true">✳</div><div class="brand-name">hang<span>time</span></div></div>
+      <div class="top-note">A little word game for your brain ✨</div>
+    </header>
+
+    <section class="intro" aria-labelledby="page-title">
+      <div class="eyebrow">Ready, set, guess</div>
+      <h1 id="page-title">Save the day, one letter at a time.</h1>
+      <p>Guess the mystery word before the drawing is complete.</p>
+    </section>
+
+    <section class="game-card" aria-label="Hangman game">
+      <div class="scene">
+        <p class="scene-label">THE DOODLE</p>
+        <svg class="drawing" viewBox="0 0 280 280" role="img" aria-label="Hangman drawing showing remaining guesses">
+          <path class="gallows" d="M38 253h174M76 253V35h105v34M76 77l38-42"/>
+          <path class="gallows" d="M181 69v25" />
+          <circle class="person person-part" data-part="0" cx="181" cy="113" r="19"/>
+          <g class="person-part" data-part="1"><path class="person" d="M181 132v55"/></g>
+          <g class="person-part" data-part="2"><path class="person" d="M181 147l-28 23"/></g>
+          <g class="person-part" data-part="3"><path class="person" d="M181 147l28 23"/></g>
+          <g class="person-part" data-part="4"><path class="person" d="M181 186l-25 33"/></g>
+          <g class="person-part" data-part="5"><path class="person" d="M181 186l25 33"/></g>
+          <g class="person-part" data-part="6">
+            <circle class="face" cx="174" cy="109" r="2.2" stroke="none"/>
+            <circle class="face" cx="188" cy="109" r="2.2" stroke="none"/>
+            <path class="person" d="M174 120q7-7 14 0"/>
+          </g>
+        </svg>
+        <p class="scene-caption" id="scene-caption">You have <strong>7 chances</strong>. Make them count!</p>
+        <div class="overlay" id="result-overlay" aria-live="polite">
+          <div class="overlay-card">
+            <div class="overlay-emoji" id="result-emoji"></div>
+            <h2 id="result-title"></h2>
+            <p id="result-copy"></p>
+            <button class="action new-button" id="play-again">↻ &nbsp;Play again</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="play-area">
+        <div class="stats">
+          <div class="stat">
+            <div class="stat-icon" aria-hidden="true">🔥</div>
+            <div><div class="stat-label">Win streak</div><div class="stat-value" id="streak">0</div></div>
+          </div>
+          <div class="stat">
+            <div class="stat-icon" aria-hidden="true">❤️</div>
+            <div><div class="stat-label">Chances left</div><div class="lives" id="lives" aria-label="7 chances left"></div></div>
+          </div>
+        </div>
+
+        <div class="category-row">
+          <span class="category-label">Your clue category</span>
+          <span class="category" id="category">—</span>
+        </div>
+
+        <div class="word" id="word" aria-label="Mystery word"></div>
+        <p class="message" id="message" aria-live="polite">Pick a letter to get started!</p>
+        <div class="keyboard" id="keyboard" aria-label="Letter keyboard"></div>
+
+        <div class="actions">
+          <button class="action hint-button" id="hint-button">💡 &nbsp;Hint <span id="hint-count">(2)</span></button>
+          <span class="kbd-note">Psst... you can type on your keyboard</span>
+          <button class="action new-button" id="new-game">New word &nbsp;↗</button>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">Made for curious minds <span>♥</span> No pressure, just play.</footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
